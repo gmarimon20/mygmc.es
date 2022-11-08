@@ -1,0 +1,132 @@
+<!DOCTYPE html >
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	<title>GMC</title>
+	<!-- Favicon-->
+	<link rel="icon" type="image/x-icon" th:href="@{/assets/favicon.ico}" />
+	<!-- Font Awesome icons (free version)-->
+	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js"
+		crossorigin="anonymous"></script>
+	<!-- Google fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+		rel="stylesheet" type="text/css" />
+	<!-- Core theme CSS (includes Bootstrap)-->
+	<link th:href="@{/css/styles.css}" rel="stylesheet" />
+</head>
+<body id="page-top">
+	<!-- Navigation-->
+	<nav
+		class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
+		id="mainNav">
+		<div class="container">
+			<a class="navbar-brand btn btn-outline-light btn-home mx-1"
+				th:href="@{/}"> <img class="img" th:src="@{/assets/logo/logoGCode-white.svg}"></img>
+			</a>
+			<button
+				class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded"
+				type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
+				aria-expanded="false" aria-label="Toggle navigation">
+				Menu <i class="fas fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ms-auto">
+					<li class="nav-item mx-0 mx-lg-1"><a
+						class="nav-link py-3 px-0 px-lg-3 rounded" th:href="@{/}">Inicio</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<header class="masthead-solicitud bg-primary text-white text-center">
+		<div class="container d-flex align-items-center flex-column">
+			<!-- Masthead Heading-->
+			<h2 class="masthead-heading text-uppercase mb-2">gerard marimon
+				caparrós</h2>
+			<!-- Icon Divider-->
+			<div class="divider-custom divider-light">
+				<div class="divider-custom-line"></div>
+			</div>
+			<!-- Masthead Subheading-->
+			<p class="masthead-subheading font-weight-light mb-0">Java -
+				Spring Boot - MySQL</p>
+		</div>
+	</header>
+
+	<!-- Contact Section-->
+	<section class="page-section" id="contact">
+		<div class="container">
+			<!-- Contact Section Heading-->
+			<h2
+				class="page-section-heading text-center text-uppercase text-secondary mb-0">solicitud
+				de contacto</h2>
+			<!-- Icon Divider-->
+			<div class="divider-custom">
+				<div class="divider-custom-line"></div>
+			</div>
+			<!-- Contact Section Form-->
+			<div class="row justify-content-center">
+				<div class="col-lg-8 col-xl-7">
+					<form th:action="@{/solicitud/save}" th:object="${solicitud}"
+						method="post" id="contactForm">
+
+						<!-- Name input-->
+						<div class="form-floating mb-3">
+							<input required="required" th:field="*{nombre}"
+								class="form-control" id="name" type="text"
+								placeholder="Enter your name..." /> <label for="name">Nombre
+								de Empresa</label>
+						</div>
+
+						<!-- Email address input-->
+						<div class="form-floating mb-3">
+							<input th:field="*{email}" class="form-control" id="email"
+								type="email" placeholder="name@example.com" required="required" />
+							<label for="email">Email</label>
+						</div>
+
+						<!-- Phone number input-->
+						<div class="form-floating mb-3">
+							<input th:field="*{telefono}" class="form-control" id="phone"
+								type="tel" placeholder="612453945" pattern="[0-9]{9}"
+								maxlength="9" title="Tiene que ser un número de 9 dígitos"
+								required="required" /> <label for="phone">Teléfono</label>
+						</div>
+
+
+						<!-- Message input-->
+						<div class="form-floating mb-3">
+							<textarea th:field="*{comentario}" class="form-control"
+								id="message" rows="2" placeholder="Enter your message here..."
+								style="height: 10rem"></textarea>
+							<label for="message">Mensaje</label>
+						</div>
+
+						<!-- Submit Button-->
+						<button class="btn btn-primary btn-xl enable" id="submitButton"
+							type="submit">Enviar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer-->
+	<footer class="footer" th:insert="fragments/footer :: pie-pagina" />
+
+	<!-- Bootstrap core JS-->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Core theme JS-->
+	<script th:src="@{/js/scripts.js}"></script>
+	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>
