@@ -1,3 +1,4 @@
 # mygmc.es
-Mi web personal hecha con Spring boot 2 y mysql en un servidor VPC de AWS.
-LINK: mygmc.es:8080
+Mi web personal hecha con Spring boot 2 y MySQL en un servidor VPC de AWS.
+Para la estructura web HTML, Thymeleaf, CSS y Booststrap.
+LINK: mygmc.es
