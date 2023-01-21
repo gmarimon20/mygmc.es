@@ -1,0 +1,264 @@
+<!DOCTYPE html >
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>GMC</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" th:href="@{assets/favicon.ico}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link th:href="@{/css/styles.css}" rel="stylesheet" />
+
+       	<!-- Google Tag Manager  -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-MB7HJ8K');</script>
+		<!-- End Google Tag Manager -->
+	 	<!-- Cookies -->
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+		<link rel="stylesheet" th:href="@{/css/cookiesCSS.css}">
+
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav th:insert="fragments/menu :: menu-principal"/>
+       
+        <!-- Masthead-->
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                <img class="masthead-avatar mb-5" th:src="@{assets/img/siluetaGerard.png}" alt="..." />
+                <!-- Masthead Heading-->
+                <h2 class="masthead-heading text-uppercase mb-0">gerard marimon caparrós</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                	<div class="divider-custom-line"></div>
+                </div>
+                <!-- Masthead Subheading-->
+                <p class="masthead-subheading font-weight-light mb-0">Java - Spring Boot - MySQL</p>
+            </div>
+        </header>
+        
+		<!-- MSG-->
+        <div th:if="${msg != null}" class='alert alert-success lead text-center' th:text="${msg}" role='alert'></div>
+        
+        <!-- Experiencia Laboral Section-->
+        <section class="page-section bg-gray portfolio" id="xplaboral">
+            <div class="container">
+                <!-- Experiencia Laboral Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Experiencia laboral</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom"><div class="divider-custom-line"></div></div>
+                <!-- Experiencia Laboral Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Experiencia Laboral Item-->
+                    <div class="col-md-6 col-lg-3 mb-5 btn btn-xl" th:each="trabajo : ${trabajos}">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" th:attr="data-bs-target='#trabajoModal'+${trabajo.id}">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white">
+                                	<i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" th:src="@{assets/img/portfolio/{img} (img=${trabajo.imagen})}" alt="..." />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Educacion Section-->
+        <section class="page-section bg-gray portfolio" id="educacion">
+            <div class="container">
+                <!-- Educacion Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Educación</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom"><div class="divider-custom-line"></div></div>
+                <!-- Educacion Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Educacion Item-->
+                    <div class="col-md-6 col-lg-3 mb-5 btn btn-xl" th:each="educacion : ${educacion}">
+                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" th:attr="data-bs-target='#educacionModal'+${educacion.id}">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white">
+                                	<i class="fas fa-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img class="img-fluid" th:src="@{assets/img/portfolio/{img} (img=${educacion.imagen})}" alt="..." />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section-->
+        <section class="page-section bg-primary text-white mb-0" id="about">
+            <div class="container">
+                <!-- About Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-white">Sobre Mi</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom"><div class="divider-custom-line-white"></div></div>
+                <!-- About Section Content-->
+                <div class="row">
+                    <div class="col-lg-4 ms-auto"><p class="lead text-center">Soy Técnico Superior de Desarrollo de Aplicaciones Multiplataforma, sé programar en Java, pero tengo facilidad para aprender cualquier otro lenguaje. También tengo conocimientos de base de datos en MySQL guardadas en plataformas como AWS y MongoDB, además en local en MySQL WorkBench y Ubuntu Server.</p></div>
+                    <div class="col-lg-4 me-auto"><p class="lead text-center">En programación de Back-end he hecho un curso en Udemy para profundizar mis conocimientos de Spring Boot, para el Front-end utilizo HTML 5, CSS y Bootstrap. Tengo muchas ganas de aumentar mi experiencia laboral y mejorar <br> y adquirir conocimientos.</p></div>
+                </div>
+                <!-- About Section Button-->
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-light" target="_blank" th:href="@{/assets/cv_Gerard_Marimon_es.pdf}">
+                        <i class="fas fa-download me-2"></i>
+                        Descargar CV
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section-->
+        <section class="page-section bg-gray" id="contact">
+            <div class="container">
+                <!-- Contact Section Heading-->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">contáctame</h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom"><div class="divider-custom-line"></div></div>
+                <!-- Contact Section Form-->
+                <div class="col justify-content-center text-center">
+                    <div class="col-lg">
+	                   <p class="lead">Mi correo electrónico es &nbsp;<a class="lead text-center mt-4 aCustom" href="mailto:gmc.gerard@gmail.com?Subject=Solicitud de contacto, Gerard">gmc.gerard@gmail.com</a></p> 	 
+	                </div>
+                    <div class="col-lg">
+	                    <p class="lead">Mi número de contacto es &nbsp;<a class="lead text-center mt-4 aCustom"  target="_blank" href="https://api.whatsapp.com/send?phone=34691442052">691442052</a></p>
+	                </div>
+                    <div class="col-lg">
+	                    <p class="lead">También puedes enviar una solicitud de contacto.</p>
+	                    <div class="text-center mt-4">
+	                   		<a class="btn btn-primary btn-xl text-uppercase enable" id="submitButton" th:href="@{/solicitud/fromContact}">Solicitud</a>
+	                   	</div>
+                   	</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer-->
+        <footer class="footer" th:insert="fragments/footer :: pie-pagina"/>
+        
+		<!-- Google Tag Manager (noscript) -->
+			<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB7HJ8K"
+				height="0" width="0" style="display:none;visibility:hidden;"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+		
+		<!-- Aviso Cookies -->
+		<div class="fondo-aviso-cookies" id="fondo-aviso-cookies">
+			<div class="aviso-cookies" id="aviso-cookies">
+				<img class="galleta" th:src="@{/assets/img/cookies/cookie.svg}" alt="Galleta">
+				<h3 class="titulo">Cookies</h3>
+				<p class="parrafo">Utilizamos cookies propias y de terceros para mejorar nuestros servicios.</p>
+				<button class="boton" id="btn-aceptar-cookies">De acuerdo</button>
+				<button class="boton" id="btn-cancelar-cookies">No Cookies</button>
+				<a class="enlace" th:href="@{/aviso-cookies}">Aviso de Cookies</a>
+			</div>
+		</div>
+        	     
+        <!-- Exp Modals-->
+        <div th:each="trabajo : ${trabajos}" class="portfolio-modal modal fade" th:id="trabajoModal+${trabajo.id}" tabindex="-1" aria-labelledby="trabajoModal"  aria-hidden="true" >
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-auto ">
+                                    <!--  Exp Modal - Title-->
+                                    <h3 th:text="${trabajo.titulo}" class="portfolio-modal-title text-secondary text-uppercase mb-0"></h3>
+                                    <!--  Icon Divider-->
+                                    <div class="divider-custom"><div class="divider-custom-line"></div></div>
+                                    <!--  Exp Modal - Image-->
+                                    <div class="col-lg-auto d-sm-inline-flex justify-content-center">
+                                    	<img class="img-fluid-detalle rounded mb-5" th:src="@{assets/img/portfolio/{img} (img=${trabajo.imagen})}" alt="..." />
+                                     	<div class="lead mb-5 col-lg-auto">
+                                     		<label class="col-form-label-lg">Empresa:</label>
+                                     		<p th:text="${trabajo.empresa}" class="mb-4 lead"></p>
+                                     		<label class="col-form-label-lg">Desde:</label>
+                                     		<p th:text="${#dates.format(trabajo.fechaInicio, 'MM-YYYY')}" class="mb-4 lead"></p>
+                                     		<label class="col-form-label-lg">Hasta:</label>
+                                     		<p th:text="${#dates.format(trabajo.fechaFinal, 'MM-yyyy')}" class="mb-4 lead"></p>
+                                     	</div>
+                                    </div>
+                                    <!--  Exp Modal - Text-->
+                                    <p class="lead mb-4 offset-2" th:text="${trabajo.descripcion}" ></p>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Edu Modals-->
+        <div th:each="educacion : ${educacion}" class="portfolio-modal modal fade" th:id="educacionModal+${educacion.id}" tabindex="-1" aria-labelledby="educacionModal"  aria-hidden="true" >
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                    <div class="modal-body text-center pb-5">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-auto ">
+                                    <!--  Exp Modal - Title-->
+                                    <h3 th:text="${educacion.titulo}" class="portfolio-modal-title text-secondary text-uppercase mb-0"></h3>
+                                    <!--  Icon Divider-->
+                                    <div class="divider-custom"><div class="divider-custom-line"></div></div>
+                                    <!--  Exp Modal - Image-->
+                                    <div class="col-lg-auto d-sm-inline-flex justify-content-center">
+                                    	<img class="img-fluid-detalle rounded mb-5" th:src="@{assets/img/portfolio/{img} (img=${educacion.imagen})}" alt="..." />
+                                     	<div class="lead mb-5 col-lg-auto">
+                                     		<label class="col-form-label-lg">Centro Educativo:</label>
+                                     		<p th:text="${educacion.escuela}" class="mb-4 lead"></p>
+                                     		<label class="col-form-label-lg">Desde:</label>
+                                     		<p th:text="${#dates.format(educacion.fechaInicio, 'MM-YYYY')}" class="mb-4 lead"></p>
+                                     		<label class="col-form-label-lg">Hasta:</label>
+                                     		<p th:text="${#dates.format(educacion.fechaFinal, 'MM-yyyy')}" class="mb-4 lead"></p>
+                                     	</div>
+                                    </div>
+                                    <!--  Exp Modal - Text-->
+                                    <p class="lead mb-4 offset-2" th:text="${educacion.descripcion}" ></p>
+                                    <button class="btn btn-primary" data-bs-dismiss="modal">
+                                        <i class="fas fa-xmark fa-fw"></i>
+                                        Close Window
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script th:src="@{/js/scripts.js}"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <!-- Script JS Aviso Cookies -->
+        <script th:src="@{/js/aviso-cookies.js}"></script>
+        <!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-07G21B436D"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+		  gtag('config', 'G-07G21B436D');
+		</script>
+    </body>
+</html>
