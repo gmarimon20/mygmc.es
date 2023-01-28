@@ -17,11 +17,19 @@ botonAceptarCookies.addEventListener('click', () => {
 	fondoAvisoCookies.classList.remove('activo');
 
 	localStorage.setItem('cookies-aceptadas', true);
-
+	
 	dataLayer.push({'event': 'cookies-aceptadas'});
+	location.reload();
 });
 
 botonCancelarookies.addEventListener('click', () => {
+	if(localStorage.length > 0){
+		localStorage.removeItem('cookies-aceptadas');
+		dataLayer.push({'event': 'cookies-no-aceptadas'});
+	}
+	
 	avisoCookies.classList.remove('activo');
 	fondoAvisoCookies.classList.remove('activo');
+	localStorage.setItem('cookies-aceptadas', false);
+	location.reload();
 });

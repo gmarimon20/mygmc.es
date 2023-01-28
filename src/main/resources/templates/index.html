@@ -15,15 +15,6 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link th:href="@{/css/styles.css}" rel="stylesheet" />
-
-       	<!-- Google Tag Manager  -->
-		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','GTM-MB7HJ8K');</script>
-		<!-- End Google Tag Manager -->
-	 	<!-- Cookies -->
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
 		<link rel="stylesheet" th:href="@{/css/cookiesCSS.css}">
@@ -149,12 +140,7 @@
         
         <!-- Footer-->
         <footer class="footer" th:insert="fragments/footer :: pie-pagina"/>
-        
-		<!-- Google Tag Manager (noscript) -->
-			<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MB7HJ8K"
-				height="0" width="0" style="display:none;visibility:hidden;"></iframe></noscript>
-		<!-- End Google Tag Manager (noscript) -->
-		
+
 		<!-- Aviso Cookies -->
 		<div class="fondo-aviso-cookies" id="fondo-aviso-cookies">
 			<div class="aviso-cookies" id="aviso-cookies">
@@ -252,13 +238,15 @@
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <!-- Script JS Aviso Cookies -->
         <script th:src="@{/js/aviso-cookies.js}"></script>
-        <!-- Google tag (gtag.js) -->
+        <!-- Google tag (gtag.js)-->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-07G21B436D"></script>
 		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-		  gtag('config', 'G-07G21B436D');
+			if (JSON.parse(localStorage.getItem('cookies-aceptadas')) === true){
+				window.dataLayer = window.dataLayer || [];
+				function gtag(){dataLayer.push(arguments);}
+				gtag('js', new Date());
+				gtag('config', 'G-07G21B436D');
+			}
 		</script>
     </body>
 </html>
