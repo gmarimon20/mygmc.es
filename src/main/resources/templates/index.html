@@ -7,7 +7,7 @@
         <meta name="author" content="" />
         <title>GMC</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" th:href="@{assets/favicon.ico}" />
+        <link rel="icon" type="image/x-icon" th:href="@{/folder/assets/favicon.ico}" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
@@ -28,7 +28,7 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image-->
-                <img class="masthead-avatar mb-5" th:src="@{assets/img/siluetaGerard.png}" alt="..." />
+                <img class="masthead-avatar mb-5" th:src="@{/folder/assets/img/siluetaGerard.png}" alt="..." />
                 <!-- Masthead Heading-->
                 <h2 class="masthead-heading text-uppercase mb-0">gerard marimon caparrós</h2>
                 <!-- Icon Divider-->
@@ -60,7 +60,7 @@
                                 	<i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" th:src="@{assets/img/portfolio/{img} (img=${trabajo.imagen})}" alt="..." />
+                            <img class="img-fluid" th:src="@{/folder/assets/img/portfolio/{img} (img=${trabajo.imagen})}" alt="..." />
                         </div>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                                 	<i class="fas fa-plus fa-3x"></i>
                                 </div>
                             </div>
-                            <img class="img-fluid" th:src="@{assets/img/portfolio/{img} (img=${educacion.imagen})}" alt="..." />
+                            <img class="img-fluid" th:src="@{/folder/assets/img/portfolio/{img} (img=${educacion.imagen})}" alt="..." />
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                 </div>
                 <!-- About Section Button-->
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" target="_blank" th:href="@{/assets/cv_Gerard_Marimon_es.pdf}">
+                    <a class="btn btn-xl btn-outline-light" target="_blank" th:href="@{/cv/cv_Gerard_Marimon.pdf}">
                         <i class="fas fa-download me-2"></i>
                         Descargar CV
                     </a>
@@ -144,7 +144,7 @@
 		<!-- Aviso Cookies -->
 		<div class="fondo-aviso-cookies" id="fondo-aviso-cookies">
 			<div class="aviso-cookies" id="aviso-cookies">
-				<img class="galleta" th:src="@{/assets/img/cookies/cookie.svg}" alt="Galleta">
+				<img class="galleta" th:src="@{/folder/assets/img/cookies/cookie.svg}" alt="Galleta">
 				<h3 class="titulo">Cookies</h3>
 				<p class="parrafo">Utilizamos cookies propias y de terceros para mejorar nuestros servicios.</p>
 				<button class="boton" id="btn-aceptar-cookies">De acuerdo</button>
@@ -168,7 +168,7 @@
                                     <div class="divider-custom"><div class="divider-custom-line"></div></div>
                                     <!--  Exp Modal - Image-->
                                     <div class="col-lg-auto d-sm-inline-flex justify-content-center">
-                                    	<img class="img-fluid-detalle rounded mb-5" th:src="@{assets/img/portfolio/{img} (img=${trabajo.imagen})}" alt="..." />
+                                    	<img class="img-fluid-detalle rounded mb-5" th:src="@{/folder/assets/img/portfolio/{img} (img=${trabajo.imagen})}" alt="..." />
                                      	<div class="lead mb-5 col-lg-auto">
                                      		<label class="col-form-label-lg">Empresa:</label>
                                      		<p th:text="${trabajo.empresa}" class="mb-4 lead"></p>
@@ -207,7 +207,7 @@
                                     <div class="divider-custom"><div class="divider-custom-line"></div></div>
                                     <!--  Exp Modal - Image-->
                                     <div class="col-lg-auto d-sm-inline-flex justify-content-center">
-                                    	<img class="img-fluid-detalle rounded mb-5" th:src="@{assets/img/portfolio/{img} (img=${educacion.imagen})}" alt="..." />
+                                    	<img class="img-fluid-detalle rounded mb-5" th:src="@{/folder/assets/img/portfolio/{img} (img=${educacion.imagen})}" alt="..." />
                                      	<div class="lead mb-5 col-lg-auto">
                                      		<label class="col-form-label-lg">Centro Educativo:</label>
                                      		<p th:text="${educacion.escuela}" class="mb-4 lead"></p>
